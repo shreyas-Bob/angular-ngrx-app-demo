@@ -1,0 +1,118 @@
+/*--------------------------------------------------------------
+# MODALS
+--------------------------------------------------------------*/
+.modal-title small {
+  color: #767676;
+  font-size: 75%;
+  font-style: italic;
+  margin-left: 5px;
+}
+
+.modal-color-gray .modal-backdrop {
+  background-color: #f2f2f2;
+}
+
+.modal-color-white .modal-backdrop {
+  background-color: #fff;
+}
+
+
+.trans-modal .modal-content {
+  background-color: transparent;
+  box-shadow: none;
+  border: 0;
+  color: #fff;
+}
+
+.trans-modal .modal-content .close {
+  color: #fff;
+}
+
+.trans-modal .modal-content h1,
+.trans-modal .modal-content h2,
+.trans-modal .modal-content h3,
+.trans-modal .modal-content h4,
+.trans-modal .modal-content h5,
+.trans-modal .modal-content h6,
+.trans-modal .modal-content .h1,
+.trans-modal .modal-content .h2,
+.trans-modal .modal-content .h3,
+.trans-modal .modal-content .h4,
+.trans-modal .modal-content .h5,
+.trans-modal .modal-content .h6 {
+  color: #fff;
+}
+
+.trans-modal .modal-content .modal-header {
+  border: 0px;
+}
+
+.trans-modal .modal-content .modal-footer {
+  border: 0px;
+}
+
+.modal-footer.text-center {
+  text-align: center !important;
+}
+
+.modal.visible {
+  display: block !important;
+  z-index: 10 !important;
+  top: 72px !important;
+  margin: 0 auto;
+  border-radius: 8px;
+  text-align: center;
+  width: 30%;
+  max-width: 300px;
+}
+
+.modal-backdrop {
+  display: none !important;
+}
+
+.modal-title .fa {
+  margin-right: 5px;
+}
+
+.modal.vert-center {
+  text-align: center;
+}
+
+.modal-footer.text-center {
+  text-align: center !important;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+  padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 0.5% auto 1% auto;
+  border: 1px solid #888;
+  width: 28%;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 0.5% auto 1% auto;
+  border: 1px solid #888;
+  width: 35%;
+  height: 850px;
+  float: left;
+  margin-left: -11px;
+  margin-top: -14px;
+  border-radius: 0px;
+}
+
