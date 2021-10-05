@@ -116,3 +116,44 @@
   border-radius: 0px;
 }
 
+form#cronPopUp {
+  width: 66vw;
+  height: 70vh;
+}
+
+
+button.addCron {
+  border-color: #C7CDD3;
+  background-color: #fff;
+  border-radius: 7px;
+  margin-left: 2em;
+}
+
+button.addCron:hover {
+  background-color: #1CD19D;
+  color: #fff;
+}
+
+button#cancelCron {
+  border-color: #C7CDD3;
+  background-color: #fff;
+  border-radius: 7px;
+  margin-left: 2em;
+}
+
+button#cancelCron:hover {
+  background-color: #1CD19D;
+  color: #fff;
+}
+.configureCron {
+  background-color: none !important;
+  color: none !important;
+}
+
+.cronExpression,
+.registerTableRow {
+  display: none;
+}
+#crontext {
+  margin-left: 12px;
+}

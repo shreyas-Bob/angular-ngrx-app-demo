@@ -21,30 +21,55 @@
                     <div>Age</div>
                     <div>Address</div>
                     <div>Email</div>
-                    <div><a  class="a" (click)="toggleUser();"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
-                        <path d="M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z"/>
-                      </svg>ADD USER</a></div>
+                    <div><a class="a" (click)="toggleUser();"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+                                <path
+                                    d="M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z" />
+                            </svg>ADD USER</a></div>
                 </div>
                 <div class="headers" *ngIf=showadd>
                     <div><input matInput type="text" [(ngModel)]="userinput.name" required /></div>
                     <div><input matInput type="text" [(ngModel)]="userinput.age" required /></div>
                     <div><input matInput type="text" [(ngModel)]="userinput.address" required /></div>
                     <div><input matInput type="text" [(ngModel)]="userinput.email" required /></div>
-                    <div><input matInput type="button" value="Save User" (click)="saveUser(userinput)" /></div></div>
+                    <div><input matInput type="button" value="Save User" (click)="saveUser(userinput)" /></div>
+                </div>
                 <div class="item" *ngFor="let user of userslist | async">
                     <div>{{ user.name }}</div>
                     <div>{{ user.age }}</div>
                     <div>{{ user.address }}</div>
                     <div>{{ user.email }}</div>
-                    <div><a  (click)="deleteUser(user.id)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-                        <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
-                        <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
-                      </svg></a></div>
+                    <div><a (click)="deleteUser(user.id)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                <path
+                                    d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
+                                <path fill-rule="evenodd"
+                                    d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
+                            </svg></a></div>
                 </div>
             </div>
+            <button class="light-addloop-btn scheduleForData" type="submit" (click)="showCron()">Schedule</button>
         </div>
     </div>
     <footer class="footer">
-        End of Page
+        End of Page....Scheduling now <a style="color: black;">{{expression}}</a>
     </footer>
+</div>
+<script data-main="scripts/app" src="scripts/require.js"></script>
+<!-- Cron page  -->
+<div *ngIf="showCronWindowPop" id="rightCronWindow" class="modal">
+    <form class="modal-content animate" id="cronPopUp">
+        <hr />
+        <div class="row configureCron">
+            <div class="col-xs-12">
+                <cron-editor [(cron)]="scheduleData" [disabled]="isCronDisabled" [(options)]="cronOptions">
+                </cron-editor>
+                <div class="form-group mx-sm-3 mb-2 scheduleData">
+                    <input id="scheduleData" type="text" class="form-control" [(ngModel)]="scheduleData">
+                </div>
+            </div>
+        </div>
+        <router-outlet></router-outlet>
+        <button type="button" class="btn btn-info" id="generalSchedule" (click)="setCronSch(scheduleData)">Schedule</button>
+    </form>
 </div>

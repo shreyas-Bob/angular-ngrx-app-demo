@@ -12,6 +12,19 @@ import { ToastrModule, ToastContainerModule } from 'ngx-toastr';
 import { AddRemoveComponent } from './add-remove/add-remove.component';
 import { TitleBarComponent } from './title-bar/title-bar.component';
 import { MainComponent } from './main/main.component';
+import { ConfigureCronComponent } from "./configure-cron/configure-cron.component";
+import { CronEditorModule } from "cron-editor";
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatCheckboxModule } from "@angular/material/checkbox";
+import { MatSelectModule } from '@angular/material/select';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
+import { MatListModule } from '@angular/material/list';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { ApiService } from './services/api.service';
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -19,7 +32,8 @@ import { MainComponent } from './main/main.component';
     TestComponent,
     AddRemoveComponent,
     TitleBarComponent,
-    MainComponent
+    MainComponent,
+		ConfigureCronComponent
   ],
   imports: [
     BrowserModule,
@@ -34,8 +48,19 @@ import { MainComponent } from './main/main.component';
 			preventDuplicates: true,
 		}),
 		ToastContainerModule,
+    CronEditorModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatCheckboxModule,
+    MatSelectModule,
+    MatMenuModule,
+    MatDividerModule,
+    MatBottomSheetModule,
+    MatListModule,
+    DragDropModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

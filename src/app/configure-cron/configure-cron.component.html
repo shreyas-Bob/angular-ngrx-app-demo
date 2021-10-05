@@ -1,0 +1,14 @@
+<div class="row configureCron">
+	<div class="col-md-10">
+		<cron-editor [(cron)]="cronExpression"
+					 [disabled]="isCronDisabled"
+					 [(options)]="cronOptions"></cron-editor>
+		<div class="form-group mx-sm-3 mb-2 cronExpression">
+			<input id="cronExpression"
+				   type="text"
+				   class="form-control"
+				   [(ngModel)]="cronExpression">
+		</div>
+	</div>
+</div>
+<router-outlet></router-outlet>
