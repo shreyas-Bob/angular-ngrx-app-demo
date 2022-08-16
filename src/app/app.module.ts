@@ -58,7 +58,8 @@ import { HttpClientModule } from "@angular/common/http";
     MatBottomSheetModule,
     MatListModule,
     DragDropModule,
-    HttpClientModule
+    HttpClientModule,
+    StoreModule.forRoot({}, {})
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]
